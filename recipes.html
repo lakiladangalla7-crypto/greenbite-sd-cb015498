@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>GreenBite - Healthy Recipes</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Force 4 cards per row */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      padding: 40px;
+    }
+    @media (max-width: 1200px) { .recipe-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px)  { .recipe-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .recipe-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ============================== Navbar ============================== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="Images/logo.webp" alt="">GreenBite</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html" class="active">Healthy Recipes</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workouts.html">Workouts</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =========================== Recipes Section =========================== -->
+  <section class="recipes-page">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="recipes-video">
+      <source src="videos/recipes-vid-lakila.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay for readability -->
+    <div class="recipes-overlay"></div>
+
+    <div class="recipes-content">
+      <h2>🍴 Healthy Recipes</h2>
+
+      <!-- Recipe Search -->
+      <input type="text" id="recipe-search" placeholder="Search recipes...">
+
+      <!-- Filter Buttons -->
+      <div class="recipe-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+        <button class="filter-btn" data-filter="lunch">Lunch</button>
+        <button class="filter-btn" data-filter="dinner">Dinner</button>
+        <button class="filter-btn" data-filter="snacks">Snacks</button>
+        <button class="filter-btn" data-filter="smoothies">Smoothies</button>
+      </div>
+
+      <!-- Recipe Grid -->
+      <div class="recipe-grid">
+        <!-- Breakfast -->
+        <div class="card recipe-card" data-category="breakfast"
+             data-ingredients="Rolled oats, Milk, Banana, Chia seeds, Honey"
+             data-steps="Mix oats with milk, Refrigerate overnight, Add toppings"
+             data-nutrition="320,10,55,8">
+          <img src="Images/overnight-oats.webp" alt="Overnight Oats">
+          <div class="card-content">
+            <h3>Overnight Oats</h3>
+            <p>Creamy oats with banana & chia seeds.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="breakfast"
+             data-ingredients="Eggs, Spinach, Onion, Olive oil"
+             data-steps="Beat eggs, Cook onion & spinach, Add eggs"
+             data-nutrition="250,18,6,15">
+          <img src="Images/Spinach-Omelette.webp" alt="Spinach Omelette">
+          <div class="card-content">
+            <h3>Spinach Omelette</h3>
+            <p>High-protein omelette with greens.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="breakfast"
+             data-ingredients="Whole wheat bread, Avocado, Lemon, Salt, Pepper"
+             data-steps="Toast bread, Smash avocado, Add lemon, Spread"
+             data-nutrition="280,7,28,15">
+          <img src="Images/Avocado-toast.webp" alt="Avocado Toast">
+          <div class="card-content">
+            <h3>Avocado Toast</h3>
+            <p>Simple & creamy avocado toast.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="breakfast"
+             data-ingredients="Greek yogurt, Granola, Berries, Honey"
+             data-steps="Layer yogurt, Add granola & berries, Drizzle honey"
+             data-nutrition="220,12,30,6">
+          <img src="Images/Yogurt-Parfait.webp" alt="Yogurt Parfait">
+          <div class="card-content">
+            <h3>Yogurt Parfait</h3>
+            <p>Refreshing yogurt parfait with fruits.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="card recipe-card" data-category="lunch"
+             data-ingredients="Brown rice, Grilled chicken, Broccoli, Olive oil"
+             data-steps="Cook rice, Grill chicken, Steam broccoli, Serve"
+             data-nutrition="420,28,50,12">
+          <img src="Images/Chicken-Rice-Bowl.webp" alt="Chicken Rice Bowl">
+          <div class="card-content">
+            <h3>Chicken Rice Bowl</h3>
+            <p>Balanced meal with chicken & veggies.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="lunch"
+             data-ingredients="Quinoa, Chickpeas, Tomato, Cucumber, Lemon juice"
+             data-steps="Cook quinoa, Add chickpeas & veggies, Toss with lemon"
+             data-nutrition="360,14,55,9">
+          <img src="Images/Quinoa-Salad.webp" alt="Quinoa Salad">
+          <div class="card-content">
+            <h3>Quinoa Salad</h3>
+            <p>Fresh quinoa & chickpea salad.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="lunch"
+             data-ingredients="Whole wheat wrap, Turkey, Lettuce, Tomato"
+             data-steps="Fill wrap with turkey & veggies, Roll"
+             data-nutrition="340,22,35,10">
+          <img src="Images/Turkey-Wrap.webp" alt="Turkey Wrap">
+          <div class="card-content">
+            <h3>Turkey Wrap</h3>
+            <p>Light protein-packed wrap.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="lunch"
+             data-ingredients="Sweet potato, Black beans, Corn, Avocado"
+             data-steps="Bake sweet potato, Add beans, Top with avocado"
+             data-nutrition="370,13,58,11">
+          <img src="Images/Stuffed-Sweet-Potato.webp" alt="Stuffed Sweet Potato">
+          <div class="card-content">
+            <h3>Stuffed Sweet Potato</h3>
+            <p>Fiber-rich stuffed sweet potato.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="card recipe-card" data-category="dinner"
+             data-ingredients="Salmon, Asparagus, Garlic, Lemon"
+             data-steps="Season salmon, Roast with asparagus, Serve"
+             data-nutrition="450,32,8,25">
+          <img src="Images/baked-salmon.webp" alt="Baked Salmon">
+          <div class="card-content">
+            <h3>Baked Salmon</h3>
+            <p>Juicy baked salmon with veggies.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="dinner"
+             data-ingredients="Tofu, Bell peppers, Soy sauce, Garlic"
+             data-steps="Cook tofu, Add peppers, Stir with sauce"
+             data-nutrition="380,20,22,18">
+          <img src="Images/Tofu-Stir-Fry.webp" alt="Tofu Stir Fry">
+          <div class="card-content">
+            <h3>Tofu Stir Fry</h3>
+            <p>Quick stir fry with tofu & peppers.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="dinner"
+             data-ingredients="Whole wheat pasta, Tomato sauce, Basil, Parmesan"
+             data-steps="Boil pasta, Mix with sauce, Add basil & cheese"
+             data-nutrition="400,15,60,10">
+          <img src="Images/Pasta-Marinara.webp" alt="Pasta Marinara">
+          <div class="card-content">
+            <h3>Pasta Marinara</h3>
+            <p>Classic pasta with tomato sauce.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="dinner"
+             data-ingredients="Shrimp, Garlic, Olive oil, Zucchini noodles"
+             data-steps="Cook shrimp with garlic, Toss with noodles"
+             data-nutrition="340,28,12,14">
+          <img src="Images/Garlic-Shrimp-Zoodles.webp" alt="Garlic Shrimp noodles">
+          <div class="card-content">
+            <h3>Garlic Shrimp Noodles</h3>
+            <p>Low-carb shrimp with zucchini noodles.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <!-- Snacks -->
+        <div class="card recipe-card" data-category="snacks"
+             data-ingredients="Apple, Peanut butter, Cinnamon"
+             data-steps="Slice apple, Spread PB, Sprinkle cinnamon"
+             data-nutrition="200,6,28,9">
+          <img src="Images/Apple-Peanut-Butter.webp" alt="Apple Peanut Butter">
+          <div class="card-content">
+            <h3>Apple Peanut Butter</h3>
+            <p>Simple snack with apple slices.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="snacks"
+             data-ingredients="Carrots, Hummus, Cucumber"
+             data-steps="Slice carrots & cucumber, Serve with hummus"
+             data-nutrition="160,5,18,8">
+          <img src="Images/Hummus-Veggie-Dip.webp" alt="Veggie Hummus">
+          <div class="card-content">
+            <h3>Hummus Veggie Dip</h3>
+            <p>Fresh veggies with hummus dip.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="snacks"
+             data-ingredients="Dates, Almonds, Cocoa powder"
+             data-steps="Blend dates & nuts, Roll into balls, Coat with cocoa"
+             data-nutrition="180,5,24,8">
+          <img src="Images/Energy-Bites.webp" alt="Energy Bites">
+          <div class="card-content">
+            <h3>Energy Bites</h3>
+            <p>No-bake healthy energy balls.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="snacks"
+             data-ingredients="Popcorn kernels, Olive oil, Salt"
+             data-steps="Heat oil, Pop kernels, Add salt"
+             data-nutrition="150,4,20,7">
+          <img src="Images/Homemade-Popcorn.webp" alt="Popcorn">
+          <div class="card-content">
+            <h3>Homemade Popcorn</h3>
+            <p>Light crunchy snack.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <!-- Smoothies -->
+        <div class="card recipe-card" data-category="smoothies"
+             data-ingredients="Berry, Almond milk, Peanut butter, Cocoa powder"
+             data-steps="Blend all ingredients until smooth"
+             data-nutrition="320,12,40,12">
+          <img src="Images/berry-smoothie.webp" alt="Berry Smoothie">
+          <div class="card-content">
+            <h3>Berry Smoothie</h3>
+            <p>Rich smoothie with berry & cocoa.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="smoothies"
+             data-ingredients="Strawberries, Yogurt, Honey"
+             data-steps="Blend strawberries with yogurt & honey"
+             data-nutrition="250,9,38,4">
+          <img src="Images/Strawberry-Smoothie.webp" alt="Strawberry Smoothie">
+          <div class="card-content">
+            <h3>Strawberry Smoothie</h3>
+            <p>Refreshing strawberry smoothie.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="smoothies"
+             data-ingredients="Spinach, Kiwi, Apple, Water"
+             data-steps="Blend spinach, kiwi & apple until smooth"
+             data-nutrition="210,5,42,2">
+          <img src="Images/Green-Smoothie.webp" alt="Green Smoothie">
+          <div class="card-content">
+            <h3>Green Smoothie</h3>
+            <p>Energizing fruit & veggie smoothie.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+
+        <div class="card recipe-card" data-category="smoothies"
+             data-ingredients="Mango, Pineapple, Coconut water"
+             data-steps="Blend mango & pineapple with coconut water"
+             data-nutrition="240,4,50,2">
+          <img src="Images/Tropical-Smoothie.webp" alt="Tropical Smoothie">
+          <div class="card-content">
+            <h3>Tropical Smoothie</h3>
+            <p>Refreshing mango & pineapple smoothie.</p>
+          </div>
+          <div class="card-actions"><button class="btn btn-primary">View Recipe</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <!-- Give the heading a default so it’s not empty; JS will overwrite -->
+      <h2 id="modal-title">Recipe Title</h2>
+      <p id="modal-desc"></p>
+      <h4>Ingredients</h4>
+      <ul id="modal-ingredients"></ul>
+      <h4>Steps</h4>
+      <ol id="modal-steps"></ol>
+      <h4>Nutrition Info</h4>
+      <table id="modal-nutrition"></table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 GreenBite | Healthy Living Made Simple</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

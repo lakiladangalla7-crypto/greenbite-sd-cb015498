@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>GreenBite - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#47a64a">
+</head>
+<body>
+  <!-- ===================== NAVBAR ===================== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="Images/logo.webp" alt="GreenBite Logo">
+        <span>GreenBite</span>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="recipes.html">Healthy Recipes</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workouts.html">Workouts</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="videos/home-vid-lakila.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <img src="Images/logo-bg.webp" alt="GreenBite Logo" class="hero-logo">
+      <h1 id="hero-heading">Eat Healthy, Live Better</h1>
+      <p id="hero-quote">Your journey to healthy living starts here.</p>
+
+      <div>
+        <a href="recipes.html" class="btn btn-primary">Explore Recipes</a>
+        <a href="calculator.html" class="btn btn-outline">Calorie Calculator</a>
+      </div>
+
+      <!-- Auto-rotating extra quotes -->
+      <div id="quotes-container">
+        <p id="quote-text">"Healthy habits create a healthy future."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DAILY TIP ===================== -->
+  <section class="daily-tip">
+    <div class="tip-card">
+      <h2> Health Tip of the Day</h2>
+      <p id="daily-tip-text">Loading tip...</p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>&copy; 2025 GreenBite | Healthy Living Made Simple</p>
+    <form id="newsletter-form">
+      <input type="email" id="email" placeholder="Subscribe to newsletter">
+      <button type="submit">Subscribe</button>
+    </form>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="script.js"></script>
+</body>
+</html>

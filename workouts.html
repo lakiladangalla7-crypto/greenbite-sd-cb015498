@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>GreenBite - Workouts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="Images/logo.webp" alt="">GreenBite</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html">Healthy Recipes</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workouts.html" class="active">Workouts</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Workout Generator Section -->
+  <section class="workouts-page">
+    <div class="workout-card">
+      <h2>💪 Workout Generator</h2>
+      <p class="subtitle">Choose your focus and let’s sweat smart!</p>
+
+      <form id="workout-form">
+        <select id="bodypart">
+          <option value="full">Full Body</option>
+          <option value="arms">Arms</option>
+          <option value="legs">Legs</option>
+        </select>
+        <select id="equipment">
+          <option value="none">No Equipment</option>
+          <option value="dumbbells">Dumbbells</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Generate Workout</button>
+      </form>
+
+      <!-- Workout Results -->
+      <div id="workout-plan" class="workout-plan"></div>
+
+      <!-- Live timer / progress -->
+      <div id="countdown" class="countdown"></div>
+      <div id="timer-bar"><span></span></div>
+    </div> <!-- /workout-card -->
+  </section> <!-- /workouts-page -->
+
+  <footer>
+    <p>&copy; 2025 GreenBite | Stay Fit, Stay Strong</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

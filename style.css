@@ -1,0 +1,1123 @@
+/* ======================
+   GLOBAL RESET & BASE
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("Images/Blur-background.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  color: #2e4d2c;
+  line-height: 1.6;
+}
+
+img {
+  border-radius: 0.8rem;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4 {
+  color: wheat;
+}
+
+/* ======================
+   NAVBAR
+====================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #1e3821;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1e3821;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #47a64a;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+/* ======================
+   BUTTONS
+====================== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #47a64a;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background: #47a64a;
+  color: white;
+}
+.btn-primary:hover {
+  background: #2e4d2c;
+  border-color: #2e4d2c;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #47a64a;
+}
+.btn-outline:hover {
+  background: #47a64a;
+  color: white;
+}
+
+/* ======================
+   HERO SECTION
+====================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Background Video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Dark Overlay for Readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 20px;
+  color: white;
+  animation: fadeIn 2s ease;
+}
+
+.hero-logo {
+  max-width: 180px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #f9f9f9;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.6s ease-in-out;
+  min-height: 60px; /* prevents layout shift */
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+}
+
+.hero .btn {
+  margin: 10px;
+}
+
+/* ======================
+   HERO QUOTES
+====================== */
+#quotes-container {
+  margin-top: 20px;
+  min-height: 40px; /* prevents layout shift */
+}
+
+#quote-text {
+  font-size: 1.2em;
+  font-style: italic;
+  color: #f9f9f9;
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* ======================
+   CARDS (GENERIC)
+====================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover { transform: translateY(-8px); }
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content { padding: 15px; }
+.card-content h3 { margin-bottom: 10px; color: #2e4d2c; }
+.card-content p { color: #555; font-size: 0.95em; }
+
+.card-actions {
+  margin-top: auto;
+  padding: 15px;
+  text-align: center;
+}
+
+/* ======================
+   RECIPES PAGE
+====================== */
+.recipes-page {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  padding: 50px 20px;
+  overflow: hidden;
+}
+
+/* Background Video */
+.recipes-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Overlay */
+.recipes-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
+/* Content */
+.recipes-content {
+  position: relative;
+  z-index: 1;
+}
+
+.recipes-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ======================
+   RECIPE SEARCH
+====================== */
+#recipe-search {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 12px 18px;
+  width: 60%;
+  max-width: 450px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+#recipe-search:focus {
+  border-color: #47a64a;
+  box-shadow: 0 6px 16px rgba(71,166,74,0.4);
+}
+
+/* ======================
+   FILTER BUTTONS
+====================== */
+.recipe-filters { margin-bottom: 30px; }
+
+.filter-btn {
+  background: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 18px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.filter-btn:hover {
+  background: #47a64a;
+  color: white;
+}
+
+.filter-btn.active {
+  background: #2e4d2c;
+  color: white;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+/* ======================
+   RECIPE GRID
+====================== */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px;
+}
+
+@media (max-width: 1200px) { .recipe-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px)  { .recipe-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .recipe-grid { grid-template-columns: 1fr; } }
+
+/* ======================
+   RECIPE CARDS
+====================== */
+.recipe-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(71,166,74,0.4);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.recipe-card .card-content {
+  padding: 18px;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.recipe-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+  color: #2e4d2c;
+}
+
+.recipe-card p {
+  font-size: 0.95em;
+  color: #444;
+}
+
+.recipe-card .card-actions {
+  padding: 18px;
+  text-align: center;
+}
+
+.recipe-card .btn-primary {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #47a64a, #2e4d2c);
+  color: white;
+  box-shadow: 0 4px 12px rgba(71,166,74,0.4);
+  transition: 0.3s;
+}
+
+.recipe-card .btn-primary:hover {
+  background: linear-gradient(135deg, #2e4d2c, #47a64a);
+  box-shadow: 0 6px 18px rgba(71,166,74,0.6);
+}
+
+/* ======================
+   MODAL
+====================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: fadeIn 0.4s ease;
+}
+
+#close-modal {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+#close-modal:hover { color: #47a64a; }
+
+.modal-content h2 { margin-bottom: 10px; color: #2e4d2c; }
+.modal-content h4 { margin-top: 20px; color: #2e4d2c; }
+
+.modal-content ul,
+.modal-content ol {
+  margin: 10px 0 20px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.modal-content th, 
+.modal-content td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-content th {
+  background: #47a64a;
+  color: white;
+}
+
+/* ======================
+   ANIMATIONS
+====================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ======================
+   CALCULATOR PAGE
+====================== */
+.calculator-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("Images/cal-lakila.webp") no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+}
+
+.calculator-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  animation: slideUp 0.8s ease;
+}
+
+.calculator-card h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #2e4d2c;
+}
+
+.calculator-card form input,
+.calculator-card form select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.calculator-card form input:focus,
+.calculator-card form select:focus {
+  border: 2px solid #47a64a;
+}
+
+.results-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.results-box p {
+  margin-bottom: 8px;
+}
+
+.progress-container {
+  margin-top: 15px;
+}
+
+.progress {
+  height: 28px;
+  background: #e0e0e0;
+  border-radius: 14px;
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  line-height: 28px;
+  color: white;
+  font-weight: bold;
+  padding-left: 10px;
+  transition: width 1s ease-in-out;
+}
+
+#carbs-bar   { background: linear-gradient(90deg, #56ab2f, #a8e063); }
+#protein-bar { background: linear-gradient(90deg, #006400, #228b22); }
+#fat-bar     { background: linear-gradient(90deg, #ff7e5f, #feb47b); }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================
+   WORKOUTS PAGE
+====================== */
+.workouts-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("Images/workout-lakila.webp") no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+}
+
+.workout-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
+}
+
+.workout-card h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #2e4d2c;
+}
+
+.workout-card .subtitle {
+  margin-bottom: 20px;
+  color: #555;
+  font-style: italic;
+}
+
+.workout-card form select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.workout-card form select:focus {
+  border: 2px solid #47a64a;
+}
+
+.workout-plan {
+  margin-top: 20px;
+  display: grid;
+  gap: 15px;
+}
+
+.workout-plan .exercise {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.workout-plan .exercise:hover {
+  transform: scale(1.05);
+  background: #e9f9ec;
+}
+
+.countdown {
+  margin-top: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2e4d2c;
+}
+
+#timer-bar {
+  width: 100%;
+  height: 15px;
+  background: #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+#timer-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #47a64a, #00c853);
+  transition: width 1s linear;
+}
+
+
+/* Active exercise highlight + pulse animation */
+.exercise.active {
+  background: #e9f9ec;
+  box-shadow: 0 0 0 0 rgba(71, 166, 74, 0.5);
+  animation: pulse 1.2s ease-in-out infinite;
+  border-left: 6px solid #47a64a;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(71, 166, 74, 0.45); }
+  70%  { box-shadow: 0 0 0 12px rgba(71, 166, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(71, 166, 74, 0); }
+}
+
+/* Timer bar stays smooth while the JS sets width */
+#timer-bar {
+  width: 100%;
+  height: 15px;
+  background: #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+#timer-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #47a64a, #00c853);
+  transition: width 0.25s linear;
+}
+
+
+/* ======================
+   MINDFULNESS PAGE
+====================== */
+.mindfulness-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("Images/Blur-background.webp") no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+}
+
+.mindfulness-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease;
+}
+
+.mindfulness-card h2 {
+  font-size: 2em;
+  color: #2e4d2c;
+  margin-bottom: 10px;
+}
+
+.mindfulness-card .subtitle {
+  color: #555;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.mindfulness-illustration img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  display: block;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.breathing-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.side-img img {
+  width: 100px;
+  opacity: 0.85;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.side-img img:hover {
+  transform: scale(1.1) rotate(5deg);
+  opacity: 1;
+}
+
+.breathing-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.breathing-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #47a64a, #2e4d2c);
+  transform: scale(1);
+  transition: transform 4s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+#breathing-text {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+}
+
+#breathing-timer {
+  margin-top: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  margin: 8px;
+}
+
+
+/* ---------- Mindfulness additions ---------- */
+.breath-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 12px;
+  margin: 10px 0 6px;
+}
+.breath-controls label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  color: #2e4d2c;
+}
+.breath-controls select,
+.breath-controls input[type="number"]{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
+  background: rgba(255,255,255,.95);
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+.session-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap: 10px;
+  margin: 14px 0 4px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.55);
+  color:#2e4d2c;
+}
+
+.divider {
+  margin: 24px 0;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+/* Timer tools */
+.timer-tools {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+.timer-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.timer-tabs .tab {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+  cursor: pointer;
+}
+.timer-tabs .tab.active {
+  background: #2e4d2c;
+  color: #fff;
+}
+.timer-panel { display: none; }
+.timer-panel.active { display: block; }
+
+.timer-row, .timer-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  margin-bottom: 10px;
+}
+.timer-row label, .timer-grid label {
+  display: grid;
+  gap: 6px;
+  color:#2e4d2c; font-weight: 600;
+}
+.timer-row input, .timer-grid input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+.timer-display {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color:#2e4d2c;
+  text-align: center;
+  margin: 6px 0 10px;
+}
+.timer-status {
+  text-align: center;
+  color:#2e4d2c;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+
+/* ======================
+   CONTACT PAGE
+====================== */
+.contact-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contact-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+.contact-content {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  gap: 30px;
+  justify-items: center;
+}
+
+.contact-card,
+.faq-card,
+.map-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 25px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
+}
+
+.contact-card h2,
+.faq-card h2,
+.map-card h2 {
+  color: #2e4d2c;
+  margin-bottom: 10px;
+}
+
+.contact-card .subtitle {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1em;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border: 2px solid #47a64a;
+  box-shadow: 0 0 10px rgba(71,166,74,0.5);
+}
+
+#feedback-msg {
+  margin-top: 10px;
+  font-weight: bold;
+  color: wheat;
+}
+
+form button {
+  background: #47a64a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #2e4d2c;
+}
+
+.accordion-btn {
+  width: 100%;
+  padding: 15px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  background: #47a64a;
+  color: white;
+  transition: 0.3s;
+}
+
+.accordion-btn:hover {
+  background: #2e4d2c;
+}
+
+.accordion-content {
+  display: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  animation: fadeIn 0.5s ease;
+}
+
+.map-card iframe {
+  margin-top: 10px;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  margin-top: 40px;
+}
+
+/* ======================
+   RESPONSIVE NAV ANIMATION
+====================== */
+.nav-links {
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 500px;
+  opacity: 1;
+}
+
+@media (min-width: 769px) {
+  .nav-links {
+    max-height: none;
+    opacity: 1;
+    display: flex;
+    position: static;
+    flex-direction: row;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ======================
+   DAILY TIP
+====================== */
+.daily-tip {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.tip-card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f9fdf9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tip-card h2 {
+  margin-bottom: 15px;
+  color: #2e4d2c;
+}
+
+.tip-card p {
+  font-size: 1.1em;
+  color: #444;
+}

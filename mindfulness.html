@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>GreenBite - Mindfulness</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="Images/logo.webp" alt="">GreenBite</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html">Healthy Recipes</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workouts.html">Workouts</a></li>
+        <li><a href="mindfulness.html" class="active">Mindfulness</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mindfulness -->
+  <section class="mindfulness-page">
+    <div class="mindfulness-card">
+      <h2>Mindfulness & Relaxation</h2>
+      <p class="subtitle">Take a moment to breathe, relax, and refocus your mind.</p>
+
+      <!-- Illustration -->
+      <div class="mindfulness-illustration">
+        <img src="Images/inhale-exhale.webp" alt="Mindful breathing illustration">
+      </div>
+
+      <!-- Breathing -->
+      <div class="breathing-wrapper">
+        <div class="side-img">
+          <img src="Images/wellness.webp" alt="Leaf Left">
+        </div>
+
+        <div class="breathing-container">
+          <div class="breathing-circle" id="breathing-circle"></div>
+          <div id="breathing-text">Ready?</div>
+        </div>
+
+        <div class="side-img">
+          <img src="Images/wellness.webp" alt="Leaf Right">
+        </div>
+      </div>
+
+      <!-- Breathing Controls -->
+      <div class="breath-controls">
+        <label>Inhale (s)
+          <select id="inp-inhale">
+            <option>3</option><option selected>4</option><option>5</option><option>6</option>
+          </select>
+        </label>
+        <label>Hold (s)
+          <select id="inp-hold">
+            <option>0</option><option selected>2</option><option>3</option>
+          </select>
+        </label>
+        <label>Exhale (s)
+          <select id="inp-exhale">
+            <option>3</option><option selected>4</option><option>5</option><option>6</option>
+          </select>
+        </label>
+        <label>Cycles
+          <input type="number" id="inp-cycles" value="5" min="1" max="20">
+        </label>
+      </div>
+
+      <div id="breathing-timer" aria-live="polite">0s</div>
+
+      <div class="controls">
+        <button id="start-breathing" class="btn btn-primary">Start Breathing</button>
+        <button id="reset-breathing" class="btn btn-outline">Reset</button>
+        <button id="toggle-sound" class="btn btn-outline">Sound: Off</button>
+      </div>
+
+      <!-- Session Stats -->
+      <div class="session-stats">
+        <div><strong>Breathing sessions:</strong> <span id="stat-breath">0</span></div>
+        <div><strong>Timer sessions:</strong> <span id="stat-timer">0</span></div>
+        <div><strong>Total:</strong> <span id="stat-total">0</span></div>
+      </div>
+
+      <!-- Ambient audio -->
+      <audio id="ambient-audio" loop>
+        <source src="Audio/calm-sound-lakila.mp3" type="audio/mpeg">
+      </audio>
+
+      <hr class="divider">
+
+      <!-- Timer Tools -->
+      <h3 style="color:#2e4d2c;margin-bottom:10px;">Focus Timers</h3>
+      <div class="timer-tools">
+        <div class="timer-tabs">
+          <button class="tab active" data-tab="meditation">Meditation</button>
+          <button class="tab" data-tab="pomodoro">Pomodoro</button>
+        </div>
+
+        <!-- Meditation -->
+        <div id="meditation" class="timer-panel active">
+          <div class="timer-row">
+            <label>Duration (min)
+              <input type="number" id="med-minutes" value="10" min="1" max="120">
+            </label>
+          </div>
+          <div class="timer-display" id="med-display">10:00</div>
+          <div class="controls">
+            <button id="med-start" class="btn btn-primary">Start</button>
+            <button id="med-reset" class="btn btn-outline">Reset</button>
+          </div>
+        </div>
+
+        <!-- Pomodoro -->
+        <div id="pomodoro" class="timer-panel">
+          <div class="timer-grid">
+            <label>Focus (min)
+              <input type="number" id="pomo-focus" value="25" min="1" max="120">
+            </label>
+            <label>Break (min)
+              <input type="number" id="pomo-break" value="5" min="1" max="60">
+            </label>
+            <label>Rounds
+              <input type="number" id="pomo-rounds" value="4" min="1" max="12">
+            </label>
+          </div>
+          <div class="timer-status" id="pomo-status">Focus — Round 1/4</div>
+          <div class="timer-display" id="pomo-display">25:00</div>
+          <div class="controls">
+            <button id="pomo-start" class="btn btn-primary">Start</button>
+            <button id="pomo-reset" class="btn btn-outline">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GreenBite | Calm Mind, Healthy Body</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

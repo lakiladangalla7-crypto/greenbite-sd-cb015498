@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>GreenBite - Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================== Navbar ============================== -->
+
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="Images/logo.webp" alt="">GreenBite</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html">Healthy Recipes</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workouts.html">Workouts</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========================== Contact Section ========================== -->
+
+  <section class="contact-page">
+    
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="contact-video">
+      <source src="videos/contact-vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="contact-overlay"></div>
+
+    <!-- Content -->
+    <div class="contact-content">
+      <div class="contact-card">
+        <h2>Contact Us</h2>
+        <p class="subtitle">We’d love to hear from you! Fill out the form below.</p>
+
+        <form id="contact-form">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="contact-email" placeholder="Your Email" required>
+          <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        <p id="feedback-msg"></p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-card">
+        <h2>FAQ</h2>
+
+        <button class="accordion-btn">What is GreenBite?</button>
+        <div class="accordion-content">
+          <p>GreenBite is your healthy living companion — discover recipes, workouts, and mindfulness tips!</p>
+        </div>
+
+        <button class="accordion-btn">Where are you located?</button>
+        <div class="accordion-content">
+          <p>We are based in Colombo, Sri Lanka — but our digital services reach everywhere 🌍.</p>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-card">
+        <h2>Find Us</h2>
+        <!-- width moved to CSS/inline style (percent is not valid for the width attribute) -->
+        <iframe
+          src="https://www.google.com/maps?q=Colombo&output=embed"
+          style="width:100%; height:250px; border:0;"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Footer ============================== -->
+  <footer>
+    <p>&copy; 2025 GreenBite | Stay Connected</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

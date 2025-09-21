@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>GreenBite - Calorie Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ============================ Navbar ============================ -->
+
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="Images/logo.webp" alt="">GreenBite</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html">Healthy Recipes</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workouts.html">Workouts</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ====================== Calculator Section ====================== -->
+  <section class="calculator-page">
+    <div class="calculator-card">
+      <h2>Calorie & Nutrition Calculator</h2>
+      <form id="calc-form">
+        <input type="number" id="age" placeholder="Enter Age" required>
+        <select id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <input type="number" id="height" placeholder="Height (cm)" required>
+        <input type="number" id="weight" placeholder="Weight (kg)" required>
+        <select id="activity">
+          <option value="1.2">Sedentary</option>
+          <option value="1.375">Lightly Active</option>
+          <option value="1.55">Moderately Active</option>
+          <option value="1.725">Very Active</option>
+          <option value="1.9">Super Active</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </form>
+
+      <!-- ============================ Results ============================ -->
+      <div id="results" class="results-box">
+        <p><strong>BMR:</strong> <span id="bmr">--</span> kcal</p>
+        <p><strong>TDEE:</strong> <span id="tdee">--</span> kcal</p>
+
+        <div class="progress-container">
+          <div class="progress"><span id="carbs-bar">Carbs 0g</span></div>
+          <div class="progress"><span id="protein-bar">Protein 0g</span></div>
+          <div class="progress"><span id="fat-bar">Fat 0g</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Footer ============================== -->
+  <footer>
+    <p>&copy; 2025 GreenBite | Healthy Living Made Simple</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
