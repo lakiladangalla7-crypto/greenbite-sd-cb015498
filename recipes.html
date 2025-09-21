@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
   <title>GreenBite - Healthy Recipes</title>
-    <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- small helper for accessible hidden labels -->
   <style>
-    /* Force 4 cards per row */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0; border: 0;
+      clip: rect(0 0 0 0); clip-path: inset(50%);
+      overflow: hidden; white-space: nowrap;
+    }
+    /* (Optional) force 4 cards per row; can be removed if style.css already handles it */
     .recipe-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -23,7 +31,7 @@
 </head>
 <body>
 
-  <!-- ============================== Navbar ============================== -->
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
       <div class="logo"><img src="Images/logo.webp" alt="">GreenBite</div>
@@ -39,25 +47,22 @@
     </nav>
   </header>
 
-  <!-- =========================== Recipes Section =========================== -->
+  <!-- Recipes Section -->
   <section class="recipes-page">
-    <!-- Background Video -->
     <video autoplay muted loop playsinline class="recipes-video">
       <source src="videos/recipes-vid-lakila.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-
-    <!-- Overlay for readability -->
     <div class="recipes-overlay"></div>
 
     <div class="recipes-content">
       <h2>🍴 Healthy Recipes</h2>
 
-      <!-- Recipe Search -->
-       <label for="newsletter-email" class="visually-hidden">Email address</label>
-      <input type="text" id="recipe-search" placeholder="Search recipes...">
+      <!-- Search -->
+      <label for="recipe-search" class="visually-hidden">Search recipes</label>
+      <input type="text" id="recipe-search" name="recipe-search" placeholder="Search recipes...">
 
-      <!-- Filter Buttons -->
+      <!-- Filters -->
       <div class="recipe-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="breakfast">Breakfast</button>
@@ -67,7 +72,7 @@
         <button class="filter-btn" data-filter="smoothies">Smoothies</button>
       </div>
 
-      <!-- Recipe Grid -->
+      <!-- Cards -->
       <div class="recipe-grid">
         <!-- Breakfast -->
         <div class="card recipe-card" data-category="breakfast"
@@ -321,7 +326,6 @@
   <div id="recipe-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
-      <!-- Give the heading a default so it’s not empty; JS will overwrite -->
       <h2 id="modal-title">Recipe Title</h2>
       <p id="modal-desc"></p>
       <h4>Ingredients</h4>

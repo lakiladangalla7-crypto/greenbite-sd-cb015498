@@ -2,24 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
   <title>GreenBite - Home</title>
+
+  <!-- Site styles and PWA bits -->
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#47a64a">
+
+  <!-- Helper class for screen-reader-only labels -->
+  <style>
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0; border: 0;
+      clip: rect(0 0 0 0); clip-path: inset(50%);
+      overflow: hidden; white-space: nowrap;
+    }
+  </style>
 </head>
 <body>
-  <!-- ===================== NAVBAR ===================== -->
+  <!-- Navbar -->
   <header>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary">
       <div class="logo">
-        <img src="Images/logo.webp" alt="GreenBite Logo">
+        <img src="Images/logo.webp" alt="GreenBite logo">
         <span>GreenBite</span>
       </div>
-      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-controls="nav-links"
+        aria-expanded="false"
+      >
+        &#9776;
+      </button>
+
+      <!-- Navigation links -->
+      <ul id="nav-links" class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
         <li><a href="recipes.html">Healthy Recipes</a></li>
         <li><a href="calculator.html">Calorie Calculator</a></li>
         <li><a href="workouts.html">Workouts</a></li>
@@ -29,50 +55,54 @@
     </nav>
   </header>
 
-  <!-- ===================== HERO SECTION ===================== -->
-  <section class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-      <source src="videos/home-vid-lakila.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-overlay"></div>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/home-vid-lakila.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
 
-    <div class="hero-content">
-      <img src="Images/logo-bg.webp" alt="GreenBite Logo" class="hero-logo">
-      <h1 id="hero-heading">Eat Healthy, Live Better</h1>
-      <p id="hero-quote">Your journey to healthy living starts here.</p>
+      <div class="hero-content">
+        <img src="Images/logo-bg.webp" alt="GreenBite emblem" class="hero-logo">
+        <h1 id="hero-heading">Eat Healthy, Live Better</h1>
+        <p id="hero-quote">Your journey to healthy living starts here.</p>
 
-      <div>
-        <a href="recipes.html" class="btn btn-primary">Explore Recipes</a>
-        <a href="calculator.html" class="btn btn-outline">Calorie Calculator</a>
+        <div>
+          <a href="recipes.html" class="btn btn-primary">Explore Recipes</a>
+          <a href="calculator.html" class="btn btn-outline">Calorie Calculator</a>
+        </div>
       </div>
+    </section>
 
-      <!-- Auto-rotating extra quotes -->
-      <div id="quotes-container">
-        <p id="quote-text">"Healthy habits create a healthy future."</p>
+    <!-- Daily Tip -->
+    <section class="daily-tip" aria-labelledby="tip-title">
+      <div class="tip-card">
+        <h2 id="tip-title">Health Tip of the Day</h2>
+        <p id="daily-tip-text">Loading tip...</p>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ===================== DAILY TIP ===================== -->
-  <section class="daily-tip">
-    <div class="tip-card">
-      <h2> Health Tip of the Day</h2>
-      <p id="daily-tip-text">Loading tip...</p>
-    </div>
-  </section>
-
-  <!-- ===================== FOOTER ===================== -->
+  <!-- Footer with newsletter -->
   <footer>
     <p>&copy; 2025 GreenBite | Healthy Living Made Simple</p>
-    <form id="newsletter-form">
-      <label for="newsletter-email" class="visually-hidden">Email address</label>
-      <input type="email" id="email" placeholder="Subscribe to newsletter">
+    <form id="newsletter-form" novalidate>
+      <label for="email" class="visually-hidden">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Subscribe to newsletter"
+        autocomplete="email"
+        required
+      >
       <button type="submit">Subscribe</button>
     </form>
   </footer>
 
-  <!-- ===================== SCRIPTS ===================== -->
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
